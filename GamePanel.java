@@ -186,6 +186,8 @@ public class GamePanel extends JPanel implements ActionListener, MouseListener{
 					pawn = new Pawn(boardLocationsX[i][j], boardLocationsY[i][j], "black");
 					g.fillRect(pawn.x, pawn.y, pawn.width, pawn.height);
 				} else if(boardPieces[i][j] == 2) {
+					g.setColor(Color.black);
+					g.drawRect((i * 100) + 34, (j * 100) + 29, pawn.width  + 1, pawn.height + 1);
 					g.setColor(Color.white);
 					pawn = new Pawn(boardLocationsX[i][j], boardLocationsY[i][j], "white");
 					g.fillRect(pawn.x, pawn.y, pawn.width, pawn.height);
@@ -202,6 +204,8 @@ public class GamePanel extends JPanel implements ActionListener, MouseListener{
 					knight = new Knight(boardLocationsX[i][j], boardLocationsY[i][j], "black");
 					g.fillRect(knight.x, knight.y, knight.width, knight.height);
 				} else if(boardPieces[i][j] == 4) {
+					g.setColor(Color.black);
+					g.drawRect((i * 100) + 34, (j * 100) + 19, knight.width  + 1, knight.height + 1);
 					g.setColor(Color.white);
 					knight = new Knight(boardLocationsX[i][j], boardLocationsY[i][j], "black");
 					g.fillRect(knight.x, knight.y, knight.width, knight.height);
@@ -219,9 +223,11 @@ public class GamePanel extends JPanel implements ActionListener, MouseListener{
 					rook = new Rook(boardLocationsX[i][j], boardLocationsY[i][j], "black");
 					g.fillRect(rook.x, rook.y,rook.width, rook.height);
 				}else if(boardPieces[i][j] == 6) {
+					g.setColor(Color.black);
+					g.drawRect((i * 100) + 34, (j * 100) + 19, rook.width  + 1, rook.height + 1);
 					g.setColor(Color.white);
 					rook = new Rook(boardLocationsX[i][j], boardLocationsY[i][j], "black");
-					g.fillRect(rook.x, rook.y,rook.width, rook.height);
+					g.fillRect(rook.x, rook.y,rook.width, rook.height);			
 				}
 			}
 		}
@@ -234,14 +240,14 @@ public class GamePanel extends JPanel implements ActionListener, MouseListener{
 					g.setColor(Color.black);
 					bishop = new Bishop(boardLocationsX[i][j], boardLocationsY[i][j], "black");
 					g.fillRect(bishop.x, bishop.y, bishop.width, bishop.height);
-				}/*else if(boardPieces[i][j] == 8) {
+				}else if(boardPieces[i][j] == 8) {
 					g.setColor(Color.black);
-					g.drawRect((i * 100) + 34, (j * 100) + 19, queen.width  + 1, queen.height + 1);
+					g.drawRect((i * 100) + 34, (j * 100) + 19, bishop.width  + 1, bishop.height + 1);
 					g.setColor(Color.white);
 					bishop = new Bishop(boardLocationsX[i][j], boardLocationsY[i][j], "black");
 					g.fillRect(bishop.x, bishop.y, bishop.width, bishop.height);
 				}
-				*/
+				
 			}
 		}
 		
@@ -412,10 +418,7 @@ public class GamePanel extends JPanel implements ActionListener, MouseListener{
 				break;
 		}
 		
-		// kui sa paned knight laua kohta kus see ennem oli selectable siis see laheb uuesti labi selle loopi siin
-		// ja loopi lopus paneb firstClicki trueks
-		
-				
+						
 		for(int i = 0; i <= possibleMoves - 1; i++) {
 			if(!firstClick && selectedLocationX == selectableLocationsX[i] && selectedLocationY == selectableLocationsY[i]){
 				
